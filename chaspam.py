@@ -1,13 +1,29 @@
+from os import path
+from configparser import ConfigParser
 import pyautogui
 import time
 
 FILEPATH = 'text.txt'
 
-if __name__ == '__main__':
-    time.sleep(5)
-    text_file = open(FILEPATH, 'r')
+
+def load_config_file():
+    config = ConfigParser()
+    dir_path = path.dirname(path.realpath(__file__))
+    config.read(dir_path + "/chaspam.ini")
+    return config
+
+
+def spam(filepath: str, default_config):
+    text_file = open(filepath, 'r')
     text_lines = text_file.readlines()
     for line in text_lines:
         pyautogui.write(line)
-        time.sleep(0.5)
+        time.sleep(float(default_config['message_delay']))
     text_file.close()
+
+
+if __name__ == '__main__':
+    config = load_config_file()
+    default_config = config['default']
+    time.sleep(float(default_config['initial_delay']))
+    spam(FILEPATH, default_config)
