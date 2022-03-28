@@ -1,5 +1,5 @@
 # chaspam
-chaspam is a chat spamming utility crafted in python
+chaspam is a chat spamming utility crafted in python, to get back at people spamming you.
 
 ## Prerequisites
 * Python 3.9+
