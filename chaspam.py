@@ -4,12 +4,10 @@ from configparser import ConfigParser
 from pyautogui import write
 from time import sleep
 
-FILEPATH = 'text.txt'
 
-
-def get_filepath():
+def get_filepath(default_config):
     if len(argv) < 2:
-        return FILEPATH
+        return default_config['default_text_file']
     return argv[1]
 
 
@@ -33,5 +31,5 @@ if __name__ == '__main__':
     config = load_config_file()
     default_config = config['default']
     sleep(float(default_config['initial_delay']))
-    filepath = get_filepath()
+    filepath = get_filepath(default_config)
     spam(filepath, default_config)
