@@ -19,12 +19,12 @@ change to the chaspam directory:
 ```bash
 cd chaspam/
 ```
-create a input file named "text.txt":
-```bash
-touch text.txt
-```
-execute the script:
+execute the script writing the dafualt file "text.txt" in the chaspam folder:
 ```bash
 python chaspam.py
+```
+execute the script using a custom text file:
+```bash
+python chaspam.py <filepath>
 ```
 click into a chat box within 5 seconds until the script activates and the script will print every line seperately as if you would type the file yourself.
